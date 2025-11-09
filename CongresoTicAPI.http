@@ -1,0 +1,6 @@
+@CongresoTicAPI_HostAddress = http://localhost:5262
+
+GET {{CongresoTicAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
