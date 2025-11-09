@@ -1,4 +1,4 @@
-using CongresoTicAPI.Data;
+﻿using CongresoTicAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
 
@@ -9,7 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Configurar conexi�n a base de datos
+// Configurar conexión a base de datos
 /* builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("CadenaSql"))); */
 
@@ -32,13 +32,13 @@ builder.Services.AddCors(options =>
 var app = builder.Build();
 
 // Configurar el pipeline HTTP
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection(); // ← COMENTADO
 
 // Usar CORS
 app.UseCors("AllowReactApp");
