@@ -11,7 +11,8 @@ FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build /app/out .
 
-EXPOSE 80
-ENV ASPNETCORE_URLS=http://+:80
+# Usar variable PORT de Render
+ENV ASPNETCORE_URLS=http://+:${PORT:-10000}
+EXPOSE ${PORT:-10000}
 
 ENTRYPOINT ["dotnet", "CongresoTicAPI.dll"]
