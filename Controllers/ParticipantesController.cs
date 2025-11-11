@@ -82,7 +82,7 @@ namespace CongresoTicAPI.Controllers
                     return BadRequest(new { error = "Faltan datos requeridos" });
                 }
 
-                participante.FechaRegistro = DateTime.Now;
+                participante.FechaRegistro = DateTime.UtcNow;
 
                 _context.Participantes.Add(participante);
                 await _context.SaveChangesAsync();

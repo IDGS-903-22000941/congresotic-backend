@@ -9,6 +9,6 @@
         public string Twitter { get; set; } = string.Empty;
         public string Ocupacion { get; set; } = string.Empty;
         public string? Avatar { get; set; }
-        public DateTime FechaRegistro { get; set; }
+        public DateTime FechaRegistro { get; set; } = DateTime.UtcNow;
     }
 }
